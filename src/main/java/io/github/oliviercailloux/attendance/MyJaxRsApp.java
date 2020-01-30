@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.jetty;
+package io.github.oliviercailloux.attendance;
 
 import org.glassfish.jersey.server.ResourceConfig;
 

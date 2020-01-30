@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.jetty;
+package io.github.oliviercailloux.attendance;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.jetty;
+package io.github.oliviercailloux.attendance;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
