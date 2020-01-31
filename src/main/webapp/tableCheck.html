@@ -19,13 +19,17 @@
     </style>
 </head>
 <body>
+	<form action="http://localhost:8080/recordAttendance/create" method="post">
     <input type="button" onclick="CreateTableFromJSON()" value="Liste des etudiants" />
     <p id="showData"></p>
+<input type="submit" value="Send">
+</form>
 </body>
 
 <script>
+
     function CreateTableFromJSON() {
-        var myBooks = $students
+        var myBooks = [{"First Name":"Bertrand","Last Name":"Russell"},{"First Name":"Friedrich","Last Name":"Frege"}]
 
         // EXTRACT VALUE FOR HTML HEADER. 
         var col = [];
@@ -60,7 +64,11 @@
                 tabCell.innerHTML = myBooks[i][col[j]];
             }
         }
-
+                
+     	for (i = 1; i < table.rows.length; i++){
+        	var tabCell = table.rows[i].insertCell(table.rows[i].cells.length);
+            tabCell.innerHTML = '<input type="checkbox" name="person" value=String(table.rows[i].cells[1].innerHTML) />';
+    }
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";

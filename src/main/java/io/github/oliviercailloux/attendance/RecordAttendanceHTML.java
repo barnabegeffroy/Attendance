@@ -7,19 +7,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.json.JsonArray;
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@javax.ws.rs.Path("list")
-@RequestScoped
-public class ListHTML {
-
-	@Inject
-	StudentsList list;
+@javax.ws.rs.Path("listAttendance")
+public class RecordAttendanceHTML {
 
 	@GET
 	@Produces(MediaType.TEXT_HTML)
@@ -27,12 +21,13 @@ public class ListHTML {
 		StudentsList l = new StudentsList();
 		JsonArray data = l.asJson();
 		Charset charset = StandardCharsets.UTF_8;
-		java.nio.file.Path path = Paths.get("src/main/webapp/template.html");
-		java.nio.file.Path pathEnd = Paths.get("src/main/webapp/table.html");
+		java.nio.file.Path path = Paths.get("src/main/webapp/templateCheck.html");
+		java.nio.file.Path pathEnd = Paths.get("src/main/webapp/tableCheck.html");
 		String content = new String(Files.readAllBytes(path), charset);
 		content = content.replace("$students", data.toString());
 		Files.write(pathEnd, content.getBytes(charset));
-		File f = new File("src/main/webapp/table.html");
+		File f = new File("src/main/webapp/tableCheck.html");
 		return f;
 	}
+	
 }
