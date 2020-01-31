@@ -1,4 +1,1 @@
-= Sample Jetty
-
-Jetty embedded, JAX-RS with Jersey, JPA with Hibernate, CDI with Weld.
-
+image:https://travis-ci.com/barnabegeffroy/Attendance.svg?branch=master["Build Status", link="https://travis-ci.com/barnabegeffroy/Attendance"]
