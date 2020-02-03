@@ -22,19 +22,19 @@
 	<form action="http://localhost:8080/recordAttendance/create" method="post">
     <input type="button" onclick="CreateTableFromJSON()" value="Liste des etudiants" />
     <p id="showData"></p>
-<input type="submit" value="Send">
+<input type="submit" value="Envoyer">
 </form>
 </body>
 
 <script>
 
     function CreateTableFromJSON() {
-        var myBooks = $students
+        var students = $students
 
         // EXTRACT VALUE FOR HTML HEADER. 
         var col = [];
-        for (var i = 0; i < myBooks.length; i++) {
-            for (var key in myBooks[i]) {
+        for (var i = 0; i < students.length; i++) {
+            for (var key in students[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
                 }
@@ -55,13 +55,13 @@
         }
 
         // ADD JSON DATA TO THE TABLE AS ROWS.
-        for (var i = 0; i < myBooks.length; i++) {
+        for (var i = 0; i < students.length; i++) {
 
             tr = table.insertRow(-1);
 
             for (var j = 0; j < col.length; j++) {
                 var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = myBooks[i][col[j]];
+                tabCell.innerHTML = students[i][col[j]];
             }
         }
                 
