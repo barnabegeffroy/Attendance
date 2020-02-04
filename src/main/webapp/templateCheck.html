@@ -67,7 +67,14 @@
                 
      	for (i = 1; i < table.rows.length; i++){
         	var tabCell = table.rows[i].insertCell(table.rows[i].cells.length);
-            tabCell.innerHTML = '<input type="checkbox" name="person" value=String(table.rows[i].cells[1].innerHTML) />';
+		var surname = table.rows[i].cells[1].innerHTML;
+		var firstname = table.rows[i].cells[0].innerHTML;
+		var id = firstname + " " + surname;
+		var chk = document.createElement('input');
+		chk.setAttribute('type', 'checkbox');
+		chk.setAttribute('value', id);
+    		chk.setAttribute('name', 'person');
+		tabCell.appendChild(chk);
     }
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("showData");
