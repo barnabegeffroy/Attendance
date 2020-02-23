@@ -1,3 +1,1 @@
-web: java -jar target/attendance-0.0.1-SNAPSHOT.jar
-
-
+web: java -cp "target\classes;target\dependency\*" "io.github.oliviercailloux.attendance.App"
